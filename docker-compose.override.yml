@@ -1,0 +1,10 @@
+services:
+  web:
+    extends:
+      file: docker-compose.yml
+      service: app
+    volumes:
+      - "./app:/app"
+    command: npm run dev
+    ports:
+      - 8080:8080
