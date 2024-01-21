@@ -1,10 +1,10 @@
 services:
-  web:
-    extends:
-      file: docker-compose.yml
-      service: app
-    volumes:
-      - "./app:/app"
-    command: npm run dev
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 8080:8080
+    volumes:
+      - "./app:/app"  
+    command: bash -c 'sleep 3 && npm start'
