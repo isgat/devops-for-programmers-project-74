@@ -6,6 +6,7 @@ ci:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
 dev:
+	$(MAKE) prepare-env
 	docker-compose up
 
 build:

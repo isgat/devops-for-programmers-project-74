@@ -6,5 +6,15 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - "./app:/app"  
-    command: bash -c 'sleep 3 && npm start'
+      - "./app:/app" 
+    command: bash -c 'sleep 5 && npm start'
+
+  caddy:
+    image: caddy
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
